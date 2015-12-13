@@ -134,8 +134,8 @@ class Import extends Module {
 
 		$error				= false;
 		$contains = array(
-		    'photos' => false,
-            'albums' => false,
+			'photos' => false,
+			'albums' => false,
 		);
 
 		# Call plugins
