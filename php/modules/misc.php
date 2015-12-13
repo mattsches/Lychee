@@ -11,8 +11,6 @@ function search($database, $settings, $term) {
 
 	if (!isset($database, $settings, $term)) return false;
 
-	$return['albums'] = '';
-
 	# Initialize return var
 	$return = array(
 		'photos'	=> null,

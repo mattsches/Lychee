@@ -34,7 +34,7 @@
 				if (!isset($dbTablePrefix)) $dbTablePrefix = '';
 				defineTablePrefix($dbTablePrefix);
 
-				$database = Database::connect($dbHost, $dbUser, $dbPassword, $dbName);
+				$database = Database::connect($dbUser, $dbPassword, $dbHost, $dbName);
 
 				echo getGraphHeader($database, $_GET['p']);
 

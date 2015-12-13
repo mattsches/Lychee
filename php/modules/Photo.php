@@ -637,7 +637,7 @@ class Photo extends Module {
 
 			# Use sysstamp from the id
 			$photo['cameraDate']	= '0';
-			$photo['sysdate']		= date('d F Y', substr($data['id'], 0, -4));
+			$photo['sysdate']		= date('d F Y', (int) substr($data['id'], 0, -4));
 
 		}
 
@@ -665,8 +665,8 @@ class Photo extends Module {
 		$photo	= $photos->fetch_assoc();
 
 		# Parse photo
-		$photo['sysdate'] = date('d M. Y', substr($photo['id'], 0, -4));
-		if (strlen($photo['takestamp'])>1) $photo['takedate'] = date('d M. Y', $photo['takestamp']);
+		$photo['sysdate'] = date('d M. Y', (int) substr($photo['id'], 0, -4));
+		if (strlen($photo['takestamp'])>1) $photo['takedate'] = date('d M. Y', (int) $photo['takestamp']);
 
 		# Parse medium
 		if ($photo['medium']==='1')	$photo['medium'] = LYCHEE_URL_UPLOADS_MEDIUM . $photo['url'];
@@ -714,6 +714,9 @@ class Photo extends Module {
 
 		# Check dependencies
 		self::dependencies(isset($this->database, $url));
+
+		# Init
+		$return = array();
 
 		# Call plugins
 		$this->plugins(__METHOD__, 0, func_get_args());
@@ -765,7 +768,7 @@ class Photo extends Module {
 		$return['takestamp']	= 0;
 
 		# Read EXIF
-		if ($info['mime']=='image/jpeg') $exif = @exif_read_data($url, 'EXIF', 0);
+		if ($info['mime']=='image/jpeg') $exif = @exif_read_data($url, 'EXIF', false);
 		else $exif = false;
 
 		# EXIF Metadata

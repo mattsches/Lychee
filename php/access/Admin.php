@@ -275,7 +275,7 @@ class Admin extends Access {
 		Module::dependencies(isset($_POST['username'], $_POST['password']));
 		if (!isset($_POST['oldPassword'])) $_POST['oldPassword'] = '';
 		$this->settings = new Settings($this->database);
-		echo $this->settings->setLogin($_POST['oldPassword'], $_POST['username'], $_POST['password']);
+		echo $this->settings->setLogin($_POST['username'], $_POST['password'], $_POST['oldPassword']);
 
 	}
 

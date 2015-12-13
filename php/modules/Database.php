@@ -9,7 +9,7 @@ if (!defined('LYCHEE')) exit('Error: Direct access is not allowed!');
 
 class Database extends Module {
 
-	static function connect($host = 'localhost', $user, $password, $name = 'lychee') {
+	static function connect($user, $password, $host = 'localhost', $name = 'lychee') {
 
 		# Check dependencies
 		Module::dependencies(isset($host, $user, $password, $name));
@@ -74,7 +74,7 @@ class Database extends Module {
 
 	}
 
-	static function createConfig($host = 'localhost', $user, $password, $name = 'lychee', $prefix = '') {
+	static function createConfig($user, $password, $host = 'localhost', $name = 'lychee', $prefix = '') {
 
 		# Check dependencies
 		Module::dependencies(isset($host, $user, $password, $name));

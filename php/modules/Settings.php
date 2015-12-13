@@ -25,6 +25,9 @@ class Settings extends Module {
 		# Check dependencies
 		self::dependencies(isset($this->database));
 
+		# Init
+		$return = array();
+
 		# Execute query
 		$query		= Database::prepare($this->database, "SELECT * FROM ?", array(LYCHEE_TABLE_SETTINGS));
 		$settings	= $this->database->query($query);
@@ -39,7 +42,7 @@ class Settings extends Module {
 
 	}
 
-	public function setLogin($oldPassword = '', $username, $password) {
+	public function setLogin($username, $password, $oldPassword = '') {
 
 		# Check dependencies
 		self::dependencies(isset($this->database));

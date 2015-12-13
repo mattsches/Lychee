@@ -87,6 +87,9 @@ class Album extends Module {
 		# Check dependencies
 		self::dependencies(isset($this->database, $this->settings, $this->albumIDs));
 
+		# Init
+		$return = array();
+
 		# Call plugins
 		$this->plugins(__METHOD__, 0, func_get_args());
 

@@ -133,8 +133,10 @@ class Import extends Module {
 		}
 
 		$error				= false;
-		$contains['photos']	= false;
-		$contains['albums']	= false;
+		$contains = array(
+		    'photos' => false,
+            'albums' => false,
+		);
 
 		# Call plugins
 		# Note that updated albumId and path explicitly passed, rather

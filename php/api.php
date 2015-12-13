@@ -37,7 +37,7 @@ if (!empty($_POST['function'])||!empty($_GET['function'])) {
 	defineTablePrefix($dbTablePrefix);
 
 	# Connect to database
-	$database = Database::connect($dbHost, $dbUser, $dbPassword, $dbName);
+	$database = Database::connect($dbUser, $dbPassword, $dbHost, $dbName);
 
 	# Load settings
 	$settings = new Settings($database);

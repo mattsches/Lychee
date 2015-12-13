@@ -29,6 +29,9 @@ class Session extends Module {
 		# Call plugins
 		$this->plugins(__METHOD__, 0, func_get_args());
 
+		# Init
+		$return = array();
+
 		# Update
 		if (!isset($this->settings['version'])||$this->settings['version']!==$version) {
 			if (!Database::update($database, $dbName, @$this->settings['version'])) {
